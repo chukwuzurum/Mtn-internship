@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume — Alagwu williams</title>
+  <style>
+
+    /* ── Reset ─────────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Base ──────────────────────────────────────────────── */
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #f0ede8;
+      color: #1a1a1a;
+      font-size: 15px;
+      line-height: 1.6;
+      padding: 2.5rem 1rem;
+    }
+
+    /* ── Page ──────────────────────────────────────────────── */
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #ddd;
+      padding: 3rem 3.5rem;
+    }
+
+    /* ── Header ────────────────────────────────────────────── */
+    .header {
+      border-bottom: 2px solid #1a1a1a;
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      font-weight: normal;
+      letter-spacing: 0.04em;
+      color: #1a1a1a;
+      margin-bottom: 0.3rem;
+    }
+
+    .header .title {
+      font-size: 0.95rem;
+      color: #555;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.5rem;
+      font-size: 13px;
+      color: #444;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .contact-row span::before {
+      content: attr(data-icon) " ";
+    }
+
+    /* ── Layout ────────────────────────────────────────────── */
+    .body {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 2.5rem;
+    }
+
+    /* ── Section ───────────────────────────────────────────── */
+    section {
+      margin-bottom: 1.75rem;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #888;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 5px;
+      margin-bottom: 1rem;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* ── Experience entry ──────────────────────────────────── */
+    .entry {
+      margin-bottom: 1.25rem;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.15rem;
+    }
+
+    .entry-title {
+      font-size: 15px;
+      font-weight: bold;
+      color: #1a1a1a;
+    }
+
+    .entry-date {
+      font-size: 12px;
+      color: #888;
+      font-family: Arial, Helvetica, sans-serif;
+      white-space: nowrap;
+    }
+
+    .entry-company {
+      font-size: 13px;
+      color: #555;
+      font-style: italic;
+      margin-bottom: 0.4rem;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .entry ul {
+      padding-left: 1.2rem;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .entry ul li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* ── Education ─────────────────────────────────────────── */
+    .edu-title {
+      font-size: 15px;
+      font-weight: bold;
+      color: #1a1a1a;
+    }
+
+    .edu-school {
+      font-size: 13px;
+      color: #555;
+      font-style: italic;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .edu-date {
+      font-size: 12px;
+      color: #888;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* ── Sidebar ───────────────────────────────────────────── */
+    .sidebar section {
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Skills ────────────────────────────────────────────── */
+    .skill-group {
+      margin-bottom: 0.85rem;
+    }
+
+    .skill-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-group-label {
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #aaa;
+      font-family: Arial, Helvetica, sans-serif;
+      margin-bottom: 4px;
+    }
+
+    .skill-group p {
+      font-size: 13px;
+      color: #333;
+      line-height: 1.5;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* ── Skill bar ─────────────────────────────────────────── */
+    .skill-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+
+    .skill-bar-label {
+      font-size: 12px;
+      color: #444;
+      font-family: Arial, Helvetica, sans-serif;
+      width: 80px;
+      flex-shrink: 0;
+    }
+
+    .skill-bar-track {
+      flex: 1;
+      height: 4px;
+      background: #e8e8e8;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .skill-bar-fill {
+      height: 100%;
+      background: #1a1a1a;
+      border-radius: 2px;
+    }
+
+    /* ── Languages ─────────────────────────────────────────── */
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-family: Arial, Helvetica, sans-serif;
+      margin-bottom: 4px;
+      color: #333;
+    }
+
+    .lang-level {
+      color: #888;
+      font-style: italic;
+    }
+
+    /* ── Interests ─────────────────────────────────────────── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .tag {
+      background: #f4f4f4;
+      border: 1px solid #e0e0e0;
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 12px;
+      color: #555;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* ── Summary ───────────────────────────────────────────── */
+    .summary {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.75;
+      margin-bottom: 1.75rem;
+      border-left: 3px solid #1a1a1a;
+      padding-left: 1rem;
+    }
+
+    /* ── Print ─────────────────────────────────────────────── */
+    @media print {
+      body { background: white; padding: 0; }
+      .page { border: none; padding: 1.5rem 2rem; }
+    }
+
+    /* ── Mobile ────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .page { padding: 1.5rem 1.25rem; }
+      .body { grid-template-columns: 1fr; }
+      .entry-header { flex-direction: column; gap: 2px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- Header -->
+    <div class="header">
+      <h1>Alagwu Chukwuzurum Williams</h1>
+      <p class="title">Intern </p>
+      <div class="contact-row">
+        <span data-icon="✉">chukslagwu12@gmail.com</span>
+        <span data-icon="📞">+234 906 525 0743</span>
+        <span data-icon="🌐">chukwuzurum/github.com</span>
+        <span data-icon="📍">Lagos, Nigeria</span>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <p class="summary">
+      Intern with 2 years of experience creating intuitive websites and
+      experiences for startups and Fortune 500 companies. Passionate about
+      bridging user needs with business goals through research-driven design
+      and clean, accessible interfaces.
+    </p>
+
+    <!-- Two-column body -->
+    <div class="body">
+
+      <!-- Main column -->
+      <main>
+
+        <!-- Experience -->
+        <section>
+          <h2 class="section-title">Experience</h2>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span class="entry-title">Lead Product Designer</span>
+              <span class="entry-date">2021 — Present</span>
+            </div>
+            <p class="entry-company">Stripe &mdash; San Francisco, CA</p>
+            <ul>
+              <li>Led redesign of the merchant dashboard, improving task completion by 34%</li>
+              <li>Managed a team of 4 designers across 3 product squads</li>
+              <li>Established a company-wide design system used by 40+ engineers</li>
+              <li>Conducted 60+ user research sessions per quarter</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span class="entry-title">Senior Product Designer</span>
+              <span class="entry-date">2018 — 2021</span>
+            </div>
+            <p class="entry-company">Airbnb &mdash; San Francisco, CA</p>
+            <ul>
+              <li>Redesigned the host onboarding flow, reducing drop-off by 22%</li>
+              <li>Collaborated with engineering on accessibility improvements (WCAG AA)</li>
+              <li>Prototyped and tested 15+ new features from concept to launch</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span class="entry-title">UX Designer</span>
+              <span class="entry-date">2016 — 2018</span>
+            </div>
+            <p class="entry-company">Frog Design &mdash; New York, NY</p>
+            <ul>
+              <li>Worked across healthcare, fintech, and e-commerce clients</li>
+              <li>Delivered end-to-end UX for 8 client projects</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section>
+          <h2 class="section-title">Education</h2>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span class="edu-title">Rithm school</span>
+              <span class="entry-date">2012 — 2016</span>
+            </div>
+            <p class="edu-school">Microsoft course and certificates</p>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span class="edu-title">Microsoft excel spreadsheet and Data Analysis</span>
+              <span class="entry-date">2017</span>
+            </div>
+            <p class="edu-school">Accomplitech School</p>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+
+        <!-- Skills -->
+        <section>
+          <h2 class="section-title">Skills</h2>
+
+          <div class="skill-bar-row">
+            <span class="skill-bar-label">Figma</span>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="width: 98%"></div>
+            </div>
+          </div>
+          <div class="skill-bar-row">
+            <span class="skill-bar-label">Website design and development</span>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="skill-bar-row">
+            <span class="skill-bar-label">Data Analysis</span>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-bar-row">
+            <span class="skill-bar-label">HTML / CSS / JavaScript</span>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="width: 78%"></div>
+            </div>
+          </div>
+          <div class="skill-bar-row">
+            <span class="skill-bar-label">Illustration</span>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" style="width: 65%"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tools -->
+        <section>
+          <h2 class="section-title">Tools</h2>
+          <div class="skill-group">
+            <p class="skill-group-label">Design</p>
+            <p>Figma, Sketch, Adobe XD, Illustrator, Photoshop, VidIq, Canva</p>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-label">Research</p>
+            <p>Maze, Hotjar, Dovetail, Lookback</p>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-label">Workflow</p>
+            <p>Jira, Notion, Linear, GitHub, Udemy</p>
+          </div>
+        </section>
+
+        <!-- Languages -->
+        <section>
+          <h2 class="section-title">Languages</h2>
+          <div class="lang-row">
+            <span>English</span>
+            <span class="lang-level">Native</span>
+          </div>
+          <div class="lang-row">
+            <span>Yoruba</span>
+            <span class="lang-level">Understandable</span>
+          </div>
+          <div class="lang-row">
+            <span>French</span>
+            <span class="lang-level">Conversational</span>
+          </div>
+        </section>
+
+        <!-- Interests -->
+        <section>
+          <h2 class="section-title">Interests</h2>
+          <div class="tags">
+            <span class="tag">Typography</span>
+            <span class="tag">Photography</span>
+            <span class="tag">Rock Climbing</span>
+            <span class="tag">Ceramics</span>
+            <span class="tag">Open Source</span>
+            <span class="tag">Travelling</span>
+            <span class="tag">Gaming</span>
+          </div>
+        </section>
+
+      </aside>
+    </div>
+  </div>
+
+</body>
+</html>

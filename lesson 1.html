@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MY FIRST PROJECT</title>
+</head>
+<body>
+
+  <h1>HTML PROJECT</h1>
+
+  <hr />
+
+  <h2>Add a New Task</h2>
+  <form action="#" method="get">
+    <label for="task-input">Task:</label>
+    <input
+      type="text"
+      id="task-input"
+      name="task"
+      placeholder="Enter a new task..."
+      maxlength="120"
+      size="40"
+    />
+    <input type="submit" value="Add Task" />
+  </form>
+
+  <hr />
+
+  <h2>Filter Tasks</h2>
+  <form action="#" method="get">
+    <label>
+      <input type="radio" name="filter" value="all" checked /> All
+    </label>
+    &nbsp;
+    <label>
+      <input type="radio" name="filter" value="active" /> Active
+    </label>
+    &nbsp;
+    <label>
+      <input type="radio" name="filter" value="done" /> Done
+    </label>
+    &nbsp;
+    <input type="submit" value="Apply Filter" />
+  </form>
+
+  <hr />
+
+  <h2>Task List</h2>
+
+  <p><strong>3 tasks left</strong></p>
+
+  <table border="1" cellpadding="8" cellspacing="0" width="500">
+    <thead>
+      <tr>
+        <th>Done</th>
+        <th>Task</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td align="center">
+          <form action="#" method="get">
+            <input type="hidden" name="id" value="1" />
+            <input type="submit" value="&#x2713; Mark Done" />
+          </form>
+        </td>
+        <td>Review project brief</td>
+        <td>
+          <form action="#" method="get">
+            <input type="hidden" name="delete" value="1" />
+            <input type="submit" value="Delete" />
+          </form>
+        </td>
+      </tr>
+
+      <tr bgcolor="#e8e8e8">
+        <td align="center">
+          <form action="#" method="get">
+            <input type="hidden" name="id" value="2" />
+            <input type="submit" value="&#x21BA; Undo" />
+          </form>
+        </td>
+        <td><s>Set up development environment</s> &mdash; <em>done</em></td>
+        <td>
+          <form action="#" method="get">
+            <input type="hidden" name="delete" value="2" />
+            <input type="submit" value="Delete" />
+          </form>
+        </td>
+      </tr>
+
+      <tr>
+        <td align="center">
+          <form action="#" method="get">
+            <input type="hidden" name="id" value="3" />
+            <input type="submit" value="&#x2713; Mark Done" />
+          </form>
+        </td>
+        <td>Write first component</td>
+        <td>
+          <form action="#" method="get">
+            <input type="hidden" name="delete" value="3" />
+            <input type="submit" value="Delete" />
+          </form>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <br />
+
+  <form action="#" method="get">
+    <input type="submit" value="Clear All Done Tasks" />
+  </form>
+
+  <hr />
+
+  <h2>Task Summary</h2>
+  <ul>
+    <li>Total tasks: <strong>3</strong></li>
+    <li>Active tasks: <strong>2</strong></li>
+    <li>Completed tasks: <strong>1</strong></li>
+  </ul>
+
+  <hr />
+
+  <details>
+    <summary>About this app</summary>
+    <p>This is a basic task manager built using HTML only. No CSS or JavaScript is used. All structure and content is handled purely through HTML elements.</p>
+  </details>
+
+</body>
+</html>
